@@ -1,6 +1,6 @@
 #!bin/sh
-read -p "You want install it on ArchLinux? y/n" option;
-if $option == "y"; then
+read -p "You want install it on ArchLinux? y/n " option
+if [ $option == "y" ]; then
 #Arch Linux Build
   sudo pacman -S jdk8-openjdk
   sudo pacman -S ant
@@ -10,3 +10,4 @@ if $option == "y"; then
 else
   echo "Exiting..";
 fi
+
