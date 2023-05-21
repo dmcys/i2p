@@ -391,6 +391,19 @@ user_pref("webgl.enable-debug-renderer-info", false);
 user_pref("webgl.min_capability_mode", true);' > ./user.js
 }
 
+fshortcut() {
+echo -ne -n -e "#!/usr/bash
+[Desktop Entry]
+Type=Application
+Name=I2P+
+GenericName=I2P
+Comment=I2P+
+Categories=Network;i2p;privacy;
+Exec=sh -c "~/i2p/runplain.sh"
+Icon=/home/liveuser/i2p/logo1.png
+StartupWMClass=I2P+ Start" > ~/i2p.desktop
+}
+
 read -p "You want install it on ArchLinux? y/n " option
 if [ $option == "y" ]; then
 #Arch Linux Build
@@ -400,6 +413,7 @@ if [ $option == "y" ]; then
   sudo ant installer-linux
   java -jar *.jar
   mkdir ~/i2p && cp -r ./launchers/macosx/images/*.png ~/i2p/logo1.png
+  fshortcut
   read -p "You want install and configure one browser to run this i2p? y/n " option
       if [ $option == "y" ]; then
 			read -p "You want install the Tor-Browser configured to I2P or Default firefox? y/n " option
